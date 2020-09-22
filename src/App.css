@@ -285,6 +285,9 @@ ul.tabItem div.card-panel {
   /* background */
 }
 @media only screen and (max-width: 600px) {
+  body {
+    overflow-y: hidden !important;
+  }
   .navbar {
     /* background-color: #ffffff; */
     padding-left: 70% !important;
@@ -302,7 +305,27 @@ ul.tabItem div.card-panel {
 
   .main {
     margin-left: 0px;
+    overflow-y: hidden;
+    overflow-x: hidden;
   }
+
+  .no-content-wrapper {
+    height: 325px;
+    width: 325px;
+  }
+  
+.no-doite-content {
+  height: 50%;
+  width: 50%;
+  margin-top: 20px;
+  background-image: url("./assets/img/actions-hero.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: scroll;
+  background-size: cover;
+  /* background */
+}
+  
 }
 
 @media (prefers-reduced-motion: no-preference) {

@@ -258,7 +258,7 @@ function Boite() {
             </div>
           </Row>
         </Col>
-        <Col m={9} style={style.content}>
+        <Col m={9} s={12} style={style.content}>
           <ContentView messages={messages} id={id} />
         </Col>
       </Row>
