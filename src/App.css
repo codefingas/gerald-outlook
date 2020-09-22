@@ -268,7 +268,7 @@ ul.tabItem div.card-panel {
 
 .no-content-wrapper {
   height: 650px;
-  width: 650px;
+  width: auto;
 }
 
 .no-doite-content {
@@ -348,7 +348,7 @@ ul.tabItem div.card-panel {
 
   .no-content-wrapper {
     height: 325px;
-    width: 325px;
+    width: auto;
   }
 
   .no-doite-content {
