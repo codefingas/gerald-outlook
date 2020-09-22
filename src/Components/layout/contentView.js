@@ -2,7 +2,7 @@ import React, { useEffect, useState, Fragment } from "react";
 import "materialize-css";
 import { Row, Navbar } from "react-materialize";
 
-const ContentView = ({ id, messages }) => {
+const ContentView = ({ id, messages, setId }) => {
   console.log("THE ID", id);
   //TODO:create a lookup map for features
 
@@ -70,8 +70,18 @@ const ContentView = ({ id, messages }) => {
 
           <nav className="hide-content-on-large">
             <div className="nav-wrapper">
-              <ul >
-                <li style={{paddingRight: "20px", paddingLeft: "5px"}} className="black-text">{message.name}</li>
+              <ul>
+                <li
+                  style={{ paddingRight: "px" }}
+                  onClick={() => setId(undefined)}
+                >
+                  <a>
+                    <i className="mdi mdi-arrow-left"></i>
+                  </a>
+                </li>
+                <li style={{ marginRight: "-1px" }} className="black-text">
+                  {message.name}
+                </li>
                 {links.map((link, index) => (
                   <li>
                     <a key={index} href="#/">
