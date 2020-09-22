@@ -14,7 +14,7 @@ function App(props) {
   const [sidebar, showSidebar] = useState(false);
   return (
     <Router>
-      <div className="container-fluid app">
+      <div className={`container-fluid app ${sidebar ? "space-main" : ""}`}>
         <nav className="z-depth-0 hide show-on-small">
           <div className="nav-wrapper">
             <a href="#/" className="brand-logo center">
