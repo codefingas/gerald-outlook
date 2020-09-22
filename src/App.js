@@ -1,5 +1,5 @@
 import "./App.css";
-import React from "react";
+import React, {useState} from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { Navbar, SideNav, routes } from "./Components/layout/Navbar";
@@ -11,36 +11,37 @@ import { Navbar, SideNav, routes } from "./Components/layout/Navbar";
  */
 
 function App(props) {
+  const [sidebar, showSidebar] = useState(false);
   return (
     <Router>
       <div className="container-fluid app">
-        <nav className="z-depth-0 show-on-small hide">
+        <nav className="z-depth-0 hide show-on-small">
           <div className="nav-wrapper">
-            <a href="#" className="brand-logo center">
+            <a href="#/" className="brand-logo center">
             <i className="mdi mdi-dots-grid"></i>
               Outlook
             </a>
-            <button className="btn right btn-flat mobile-nav-btn white-text">
+            <button onClick={() => showSidebar(!sidebar)} className="btn right btn-flat mobile-nav-btn white-text">
               <i className="mdi mdi-menu"></i>
             </button>
           </div>
         </nav>
         <Route path="*">
-          <div className="sidebar">
+          <div className={`${sidebar ? "sidebar-main" :  ""} sidebar`}>
             <div>
-              <header>
+              <header className="hide-on-small-only">
                 <a href="/" className="brand-logo nav skip-link">
                   <i className="mdi mdi-dots-grid"></i>
                   Outlook
                 </a>
               </header>
             </div>
-            <SideNav {...props} />
+            <SideNav sidebar={sidebar}  showSidebar={showSidebar} {...props} />
           </div>
         </Route>
 
         <Route>
-          <main className="main">
+          <main className={`${sidebar ? "main-sidebar" :  ""} main`}>
             <Navbar />
             <TransitionGroup>
               <CSSTransition classNames="my-node" timeout={500}>

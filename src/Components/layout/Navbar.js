@@ -74,7 +74,7 @@ const links = [
   },
 ];
 
-export const SideNav = () => (
+export const SideNav = ({showSidebar, sidebar}) => (
   <ul>
     <Dropdown
       id="Dropdown_6"
@@ -116,12 +116,11 @@ export const SideNav = () => (
     {routes.map((route, index) => (
       <li className="sidebar-links" key={`${route.path}/${index}`}>
       
-        <NavLink exact to={route.path}>
+        <NavLink onClick={() => sidebar ? showSidebar(!sidebar) : null} exact to={route.path}>
           <span className="sidebar-text">
             <i className={route.icon}>
               <span className="hide">{route.icon}</span>
             </i>
-
             {route.text}
           </span>
         </NavLink>

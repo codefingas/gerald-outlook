@@ -345,6 +345,16 @@ ul.tabItem div.card-panel {
 .show-on-small {
   display: block !important;
 }
+
+.sidebar-main {
+  width: 200px !important;
+  margin-top: 50px;
+}
+
+.main-sidebar {
+  margin-left: 200px !important;
+  transition: margin-left .5s !important;
+}
   
 }
 
