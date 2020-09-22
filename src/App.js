@@ -14,6 +14,17 @@ function App(props) {
   return (
     <Router>
       <div className="container-fluid app">
+        <nav className="z-depth-0 show-on-small hide">
+          <div className="nav-wrapper">
+            <a href="#" className="brand-logo center">
+            <i className="mdi mdi-dots-grid"></i>
+              Outlook
+            </a>
+            <button className="btn right btn-flat mobile-nav-btn white-text">
+              <i className="mdi mdi-menu"></i>
+            </button>
+          </div>
+        </nav>
         <Route path="*">
           <div className="sidebar">
             <div>

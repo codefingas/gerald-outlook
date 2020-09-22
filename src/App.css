@@ -288,6 +288,10 @@ ul.tabItem div.card-panel {
   body {
     overflow-y: hidden !important;
   }
+
+  .app {
+    overflow-x: hidden !important;
+  }
   .navbar {
     /* background-color: #ffffff; */
     padding-left: 70% !important;
@@ -324,6 +328,22 @@ ul.tabItem div.card-panel {
   background-attachment: scroll;
   background-size: cover;
   /* background */
+}
+
+.transparentBG {
+  background-color: rgba(0,0,0,0);
+}
+
+.mobile-nav-btn {
+  margin-top: 10px;
+}
+
+.mobile-nav-btn i {
+  font-size: x-large;
+}
+
+.show-on-small {
+  display: block !important;
 }
   
 }
