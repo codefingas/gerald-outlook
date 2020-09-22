@@ -17,7 +17,7 @@ function App(props) {
       <div className={`container-fluid app ${sidebar ? "space-main" : ""}`}>
         <nav className="z-depth-0 hide show-on-small">
           <div className="nav-wrapper">
-            <a href="#/" className="brand-logo center">
+            <a href="#/" className="brand-logo left">
             <i className="mdi mdi-dots-grid"></i>
               Outlook
             </a>
