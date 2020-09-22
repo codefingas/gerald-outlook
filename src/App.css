@@ -91,6 +91,10 @@ ul.tabItem {
   scrollbar-width: none;
 }
 
+ul.tabItem::-webkit-scrollbar {
+  display: none;
+}
+
 ul.tabItem li {
   list-style: none;
   cursor: pointer;
