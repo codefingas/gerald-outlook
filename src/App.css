@@ -65,21 +65,12 @@ nav form {
 
 .sidebar li:before, .sidebar li:after, 
 .sidebars li a:before, .sidebar li a:after {
-  /* All pseudo elements are 
-     abs. positioned and on bottom */
   position: absolute;
   right: 0;
 }
 
-/* .sidebar li:last-child:after,   .sidebar li:last-child a:after,
-.sidebar li:first-child:before, .sidebar li:first-child a:before,
-.sidebar .active:after,   .sidebar .active:before, .sidebars .active a:after, .sidebar .active a:before {
-  content: " ";
-} */
-
 .sidebar .active:before, .sidebar .active:after {
   background: white;
-  /* z-index: 1; */
   transition: background-color cubic-bezier(0.075, 0.82, 0.165, 1) 3s;
 }
 
@@ -89,29 +80,58 @@ nav form {
   height: 10px;
 }
 
-.sidebar li:before {
-  top: -10px;
-
-}
-.sidebar li:after { 
-  bottom: -10px;
-}
-
 .sidebar li a:after, .sidebar li a:before {
-  width: 30px; 
-  height: 30px;
-  /* border-radius: 10px; */
-  background: white;
-  /* z-index: 2;s */
+  width: 20px; 
+  height: 20px;
+  /* background: black; */
 }
 
 .sidebar li a:before {
-  margin-top: -30px;
+  margin-top: -20px;
   right: 0;
 }
 
+/**
+  I am able to get the li and a to have boxes
+      one needs to be a circle and another needs to be a square
+      one moves and the other does not
+
+      - the li would be stagnant and would shape over the <a>
+*/
+
 .sidebar .active a:after, .sidebar .active a:before {
-  background: white;
+  background: grey;
+  /* z-index: 5; */
+}
+
+.sidebar li.sidebar-links:before, .sidebar li.sidebar-links:after {
+  z-index: 0;
+  background: grey;
+  position: absolute;
+  right: 0;
+}
+
+.sidebar li.sidebar-links:before, .sidebar li.sidebar-links:after {
+ width: 20px;
+ height: 20px;
+ background:#0278d5;
+ z-index: 1;
+ right: 0;
+}
+
+.sidebar li.sidebar-links:before{
+  margin-top: -20px;
+  border-bottom-right-radius: 80%;
+}
+
+.sidebar li.sidebar-links:after{
+  border-top-right-radius: 80%;
+}
+
+.sidebar li.sidebar-links:after, .sidebar li.sidebar-links:before {
+  content: " ";
+  display: block;
+  /* position: absolute; */
 }
 
 
@@ -120,7 +140,7 @@ nav form {
   background-color: #ffffff;
   margin-left: 200px;
   margin-top: 20px;
-  z-index: 0;
+  z-index: 2;
   color: #d9dfe6 !important;
   padding-bottom: 1px;
   border-radius: 15px;
@@ -240,9 +260,6 @@ nav .nav-wrapper i {
 }
 
 ul li.sidebar-links {
-  /* p
-  padding-right: 10px;
-  padding-left: 10px; */
   padding-top: 15px;
   padding-bottom: 15px;
   padding-right: 2%;
@@ -251,9 +268,7 @@ ul li.sidebar-links {
   margin-right: -10px;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
-  /* background-size: 200px 200px; */
   font-size: 14px;
-  /* font-weight: bolder; */
 }
 
 ul li.sidebar-links i {
@@ -267,7 +282,6 @@ ul li.sidebar-links i {
 .sidebar a.active {
   color: #303744 !important;
   font-weight: bolder !important;
-  /* transition: background-color cubic-bezier(0.075, 0.82, 0.165, 1) 3s; */
 }
 
 .skip-link:focus {
@@ -462,7 +476,7 @@ ul.tabItem div.card-panel {
 
   .main-sidebar {
     margin-left: 200px !important;
-    transition: margin-left 0.5s !important;
+    /* transition: margin-left 0.1s !important; */
     margin-right: -200px;
   }
   .doite-content-view {
