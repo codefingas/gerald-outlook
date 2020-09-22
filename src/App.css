@@ -59,6 +59,62 @@ nav form {
   display: block;
 }
 
+.sidebar .active {
+  z-index: 3;
+}
+
+.sidebar li:before, .sidebar li:after, 
+.sidebars li a:before, .sidebar li a:after {
+  /* All pseudo elements are 
+     abs. positioned and on bottom */
+  position: absolute;
+  right: 0;
+}
+
+/* .sidebar li:last-child:after,   .sidebar li:last-child a:after,
+.sidebar li:first-child:before, .sidebar li:first-child a:before,
+.sidebar .active:after,   .sidebar .active:before, .sidebars .active a:after, .sidebar .active a:before {
+  content: " ";
+} */
+
+.sidebar .active:before, .sidebar .active:after {
+  background: white;
+  /* z-index: 1; */
+  transition: background-color cubic-bezier(0.075, 0.82, 0.165, 1) 3s;
+}
+
+.sidebar li:before, .sidebar li:after {
+  background: white;
+  width: 10px;
+  height: 10px;
+}
+
+.sidebar li:before {
+  top: -10px;
+
+}
+.sidebar li:after { 
+  bottom: -10px;
+}
+
+.sidebar li a:after, .sidebar li a:before {
+  width: 20px; 
+  height: 20px;
+  /* border-radius: 10px; */
+  background: white;
+  /* z-index: 2;s */
+}
+
+.sidebar li a:before {
+  margin-top: -20px;
+  right: 0;
+}
+
+.sidebar .active a:after, .sidebar .active a:before {
+  background: white;
+}
+
+
 .main {
   padding: 0 10px;
   background-color: #ffffff;
@@ -161,8 +217,8 @@ nav .nav-wrapper i {
   /* background-size: 200px 200px; */
 }
 
-.sidebar a.active::after {
-  content: "";
+.sidebar a.active::after, .sidebar a.active::before {
+  content: " ";
   display: block;
   position: absolute;
   border-top-right-radius: -15px;
@@ -211,7 +267,7 @@ ul li.sidebar-links i {
 .sidebar a.active {
   color: #303744 !important;
   font-weight: bolder !important;
-  transition: background-color cubic-bezier(0.075, 0.82, 0.165, 1) 3s;
+  /* transition: background-color cubic-bezier(0.075, 0.82, 0.165, 1) 3s; */
 }
 
 .skip-link:focus {
