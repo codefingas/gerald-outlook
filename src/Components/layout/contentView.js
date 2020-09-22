@@ -5,6 +5,7 @@ import { Row, Navbar } from "react-materialize";
 const ContentView = ({ id, messages }) => {
   console.log("THE ID", id);
   //TODO:create a lookup map for features
+
   const links = [
     {
       icon: "mdi mdi-subdirectory-arrow-left mdi-flip-v",

@@ -46,7 +46,7 @@ nav form {
   top: 0;
   /* left: 0; */
   overflow-x: hidden;
- padding-top: 20px;
+  padding-top: 20px;
   color: #e5f0fa !important;
 }
 
@@ -87,7 +87,7 @@ ul.tabItem {
   height: 600px;
   overflow-y: auto;
   overflow-x: hidden;
-  -ms-overflow-style: none;  /* IE and Edge */
+  -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none;
 }
 
@@ -156,7 +156,6 @@ nav .nav-wrapper i {
   border-bottom-left-radius: 15px;
   /* background-size: 200px 200px; */
 }
-
 
 .sidebar a.active::after {
   content: "";
@@ -228,11 +227,10 @@ h4.brand-logo {
   color: #000 !important;
 }
 
-
 .doite {
   margin-left: 25px !important;
 }
-.doite-cards-text-heading{
+.doite-cards-text-heading {
   font-size: 12px;
   margin-bottom: 0px;
   color: #b4b9c4 !important;
@@ -284,6 +282,18 @@ ul.tabItem div.card-panel {
   background-size: cover;
   /* background */
 }
+
+.doite-content-view {
+  padding-left: 60px;
+}
+
+.main .hide-content-on-small {
+  display: block !important;
+}
+
+.doite-content-view {
+  padding-left: 35px !important;
+}
 @media only screen and (max-width: 600px) {
   body {
     overflow-y: hidden !important;
@@ -302,7 +312,6 @@ ul.tabItem div.card-panel {
     padding-right: 14px;
   }
 
-
   .sidebar {
     width: 0px;
   }
@@ -317,54 +326,60 @@ ul.tabItem div.card-panel {
     height: 325px;
     width: 325px;
   }
-  
-.no-doite-content {
-  height: 50%;
-  width: 50%;
-  margin-top: 20px;
-  background-image: url("./assets/img/actions-hero.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: scroll;
-  background-size: cover;
-  /* background */
-}
 
-.transparentBG {
-  background-color: rgba(0,0,0,0);
-}
+  .no-doite-content {
+    height: 50%;
+    width: 50%;
+    margin-top: 20px;
+    background-image: url("./assets/img/actions-hero.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: scroll;
+    background-size: cover;
+    /* background */
+  }
 
-.mobile-nav-btn {
-  margin-top: 10px;
-}
+  .transparentBG {
+    background-color: rgba(0, 0, 0, 0);
+  }
 
-.mobile-nav-btn i {
-  font-size: x-large;
-}
+  .mobile-nav-btn {
+    margin-top: 10px;
+  }
 
-.show-on-small {
-  display: block !important;
-}
+  .mobile-nav-btn i {
+    font-size: x-large;
+  }
 
-.space-main {
-  padding-right: 0 !important;
-}
+  .show-on-small {
+    display: block !important;
+  }
 
-.space-main .nav.show-on-small {
-  padding-right: 10px !important;
-}
+  .space-main {
+    padding-right: 0 !important;
+  }
 
-.sidebar-main {
-  width: 200px !important;
-  margin-top: 50px;
-}
+  .space-main .nav.show-on-small {
+    padding-right: 10px !important;
+  }
 
-.main-sidebar {
-  margin-left: 200px !important;
-  transition: margin-left .5s !important;
-  margin-right: -200px;
-}
-  
+  .sidebar-main {
+    width: 200px !important;
+    margin-top: 50px;
+  }
+
+  .main .hide-content-on-small {
+    display: none !important;
+  }
+
+  .main-sidebar {
+    margin-left: 200px !important;
+    transition: margin-left 0.5s !important;
+    margin-right: -200px;
+  }
+  .doite-content-view {
+    padding-left: 0px !important;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {

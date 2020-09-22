@@ -14,17 +14,21 @@ const style = {
   img: {
     borderRadius: "5px",
     width: "35px",
-  },
-  content: {
-    paddingLeft: "60px",
-  },
+  }
 };
 
 //TODO: THE FIRST ITEM HAS THE DROP DOWN OF THE SORT OVER IT - TAKE THAT AWAY
 /*
-    - remove the tabs box shadow
+    - remove the tabs box shadow *done
     - hide the scrollbar for the tabs
 */
+
+
+  /**
+   * how do I manage toggling hide and show on large screens
+   *    - a mobile value is passed
+   *        - how is the mobile value generated and what does it alter
+   */
 
 function Boite() {
   let messages = [
@@ -75,7 +79,7 @@ function Boite() {
     },
     {
       id: 5,
-      avatar: "https://cdn.vuetifyjs.com/images/lists/5.jpg",
+      avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
       name: "Britta Holt",
       time: "8:56",
       topic: "C'est chouchou que je veux",
@@ -84,7 +88,7 @@ function Boite() {
     },
     {
       id: 6,
-      avatar: "https://cdn.vuetifyjs.com/images/lists/5.jpg",
+      avatar: "https://cdn.vuetifyjs.com/images/lists/4.jpg",
       name: "Britta Holt",
       time: "8:56",
       topic: "C'est chouchou que je veux",
@@ -93,7 +97,7 @@ function Boite() {
     },
     {
       id: 7,
-      avatar: "https://cdn.vuetifyjs.com/images/lists/5.jpg",
+      avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
       name: "Britta Holt",
       time: "8:56",
       topic: "C'est chouchou que je veux",
@@ -111,7 +115,7 @@ function Boite() {
     },
     {
       id: 9,
-      avatar: "https://cdn.vuetifyjs.com/images/lists/5.jpg",
+      avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
       name: "Britta Holt",
       time: "8:56",
       topic: "C'est chouchou que je veux",
@@ -129,7 +133,7 @@ function Boite() {
     },
     {
       id: 11,
-      avatar: "https://cdn.vuetifyjs.com/images/lists/5.jpg",
+      avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
       name: "Britta Holt",
       time: "8:56",
       topic: "C'est chouchou que je veux",
@@ -141,12 +145,19 @@ function Boite() {
     //fetch data here
   }, []);
   let [id, setId] = useState();
-  //   setId
+
+
+  /**
+   * I am trying to get the main to show in large screen and hide on small screen
+   *      - 
+   */
+    
+
 
   return (
     <div className="container-fluid">
       <Row className="doite">
-        <Col m={3} s={12}>
+        <Col className={`${id === undefined ? "": "hide-content-on-small"}`} m={3} s={12}>
           <Row>
             <Navbar
               className="messages_dropdown z-depth-0"
@@ -184,11 +195,6 @@ function Boite() {
                     </span>
                   }
                 >
-                  {/* <a href="#/">one</a>
-                  <a href="#/">two</a>
-                  <a href="#/">three</a>
-                  <a href="#/">four</a>
-                  <a href="#/">five</a> */}
                 </Dropdown>
               }
               id="mobile-nav"
@@ -258,8 +264,8 @@ function Boite() {
             </div>
           </Row>
         </Col>
-        <Col m={9} s={12} style={style.content}>
-          <ContentView messages={messages} id={id} />
+        <Col m={9} s={12} className="doite-content-view">
+          <ContentView setId={setId} messages={messages} id={id} />
         </Col>
       </Row>
     </div>
