@@ -4,7 +4,7 @@ import {
   Row,
   Col,
   CardPanel,
-  Navbar,
+  // Navbar,
   Button,
   Dropdown,
 } from "react-materialize";
@@ -14,7 +14,7 @@ const style = {
   img: {
     borderRadius: "5px",
     width: "35px",
-  }
+  },
 };
 
 //TODO: THE FIRST ITEM HAS THE DROP DOWN OF THE SORT OVER IT - TAKE THAT AWAY
@@ -23,12 +23,11 @@ const style = {
     - hide the scrollbar for the tabs
 */
 
-
-  /**
-   * how do I manage toggling hide and show on large screens
-   *    - a mobile value is passed
-   *        - how is the mobile value generated and what does it alter
-   */
+/**
+ * how do I manage toggling hide and show on large screens
+ *    - a mobile value is passed
+ *        - how is the mobile value generated and what does it alter
+ */
 
 function Boite() {
   let messages = [
@@ -146,83 +145,64 @@ function Boite() {
   }, []);
   let [id, setId] = useState();
 
-
   /**
    * I am trying to get the main to show in large screen and hide on small screen
-   *      - 
+   *      -
    */
-    
-
 
   return (
     <div className="container-fluid">
       <Row className="doite">
-        <Col className={`${id === undefined ? "": "hide-content-on-small"}`} m={3} s={12}>
+        <Col
+          className={`${id === undefined ? "" : "hide-content-on-small"}`}
+          m={3}
+          s={12}
+        >
           <Row>
-            <Navbar
-              className="messages_dropdown z-depth-0"
-              alignLinks="right"
-              brand={
-                <Dropdown
-                  id="Dropdown_7"
-                  style={{ width: "100%", color: "#000" }}
-                  options={{
-                    alignment: "left",
-                    autoTrigger: true,
-                    closeOnClick: true,
-                    constrainWidth: true,
-                    container: null,
-                    coverTrigger: true,
-                    hover: false,
-                    inDuration: 150,
-                    onCloseEnd: null,
-                    onCloseStart: null,
-                    onOpenEnd: null,
-                    onOpenStart: null,
-                    outDuration: 250,
-                  }}
-                  trigger={
-                    <span style={{ color: "#444956" }} node="button" href="#/">
-                      <b>
-                        Prioritaire{" "}
-                        <i
-                          style={{ color: "#b1b6c1" }}
-                          className="mdi mdi-chevron-down"
-                        >
-                          <span className="hide">mdi mdi-chevron-down</span>
-                        </i>
-                      </b>
-                    </span>
-                  }
-                >
-                </Dropdown>
-              }
-              id="mobile-nav"
-              menuIcon={<i className="mdi mdi-menu"></i>}
+            <Dropdown
+              id="Dropdown_7"
+              style={{ width: "100%", color: "#000" }}
               options={{
-                draggable: true,
-                edge: "left",
-                inDuration: 250,
+                alignment: "left",
+                autoTrigger: true,
+                closeOnClick: true,
+                constrainWidth: true,
+                container: null,
+                coverTrigger: true,
+                hover: false,
+                inDuration: 150,
                 onCloseEnd: null,
                 onCloseStart: null,
                 onOpenEnd: null,
                 onOpenStart: null,
-                outDuration: 200,
-                preventScrolling: true,
+                outDuration: 250,
               }}
+              trigger={
+                <span style={{ color: "#444956" }} node="button" href="#/">
+                  <b>
+                    Prioritaire{" "}
+                    <i
+                      style={{ color: "#b1b6c1" }}
+                      className="mdi mdi-chevron-down"
+                    >
+                      <span className="hide">mdi mdi-chevron-down</span>
+                    </i>
+                  </b>
+                </span>
+              }
+            ></Dropdown>
+            <Button
+              node="a"
+              small
+              style={{
+                marginRight: "0px",
+                backgroundColor: "#0278d5",
+              }}
+              className="right"
+              waves="light"
             >
-              <Button
-                node="a"
-                small
-                style={{
-                  marginRight: "0px",
-                  backgroundColor: "#0278d5",
-                }}
-                waves="light"
-              >
-                <i className="mdi mdi-plus"></i>
-              </Button>
-            </Navbar>
+              <i className="mdi mdi-plus"></i>
+            </Button>
           </Row>
           <Row>
             <div className="tab">
@@ -233,7 +213,9 @@ function Boite() {
                     onClick={() => setId(index)}
                     className="hoverable"
                   >
-                    <CardPanel className={`${id === index ? "active" : ""} z-depth-1`}>
+                    <CardPanel
+                      className={`${id === index ? "active" : ""} z-depth-1`}
+                    >
                       <Row className="valign-wrapper doite-tabs">
                         <Col m={2}>
                           <img

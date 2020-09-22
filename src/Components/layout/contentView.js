@@ -30,7 +30,6 @@ const ContentView = ({ id, messages }) => {
   let [message, setMessage] = useState(null);
   useEffect(() => {
     let [message] = messages.filter((message) => message.id === id);
-    console.log("THE MESSAGE", message);
     return setMessage(message);
   }, [id, messages]);
 
@@ -38,7 +37,7 @@ const ContentView = ({ id, messages }) => {
     <div>
       {message ? (
         <Fragment>
-          <Row>
+          <Row className="hide-content-on-small">
             <Navbar
               className="messages_dropdown z-depth-0"
               alignLinks="right"
@@ -68,9 +67,25 @@ const ContentView = ({ id, messages }) => {
               ))}
             </Navbar>
           </Row>
+
+          <nav className="hide-content-on-large">
+            <div className="nav-wrapper">
+              <ul >
+                <li style={{paddingRight: "20px", paddingLeft: "5px"}} className="black-text">{message.name}</li>
+                {links.map((link, index) => (
+                  <li>
+                    <a key={index} href="#/">
+                      <i className={link.icon}></i>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </nav>
+
           <Row>
             <div className="row">
-              <p>{message.text}</p>
+              <p className="sm-content-text">{message.text}</p>
             </div>
           </Row>
         </Fragment>

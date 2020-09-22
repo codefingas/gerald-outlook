@@ -6,6 +6,10 @@ import { Dropdown } from "react-materialize";
 import DefaultPage from "../../views/defaultPage";
 import Boite from "../../views/Boite/boite";
 
+let style = {
+  smallNav: { marginTop: "35px", marginBottom: "10px", marginLeft: "25px" }
+};
+
 export const routes = [
   {
     icon: "mdi mdi-inbox-outline",
@@ -74,7 +78,7 @@ const links = [
   },
 ];
 
-export const SideNav = ({showSidebar, sidebar}) => (
+export const SideNav = ({ showSidebar, sidebar }) => (
   <ul>
     <Dropdown
       id="Dropdown_6"
@@ -115,8 +119,11 @@ export const SideNav = ({showSidebar, sidebar}) => (
     </Dropdown>
     {routes.map((route, index) => (
       <li className="sidebar-links" key={`${route.path}/${index}`}>
-      
-        <NavLink onClick={() => sidebar ? showSidebar(!sidebar) : null} exact to={route.path}>
+        <NavLink
+          onClick={() => (sidebar ? showSidebar(!sidebar) : null)}
+          exact
+          to={route.path}
+        >
           <span className="sidebar-text">
             <i className={route.icon}>
               <span className="hide">{route.icon}</span>
@@ -158,6 +165,22 @@ export const Navbar = () => (
           </li>
         ))}
       </ul>
+
+      <nav style={style.smallNav} className="hide-content-on-large z-depth-0">
+        <div className="nav-wrapper">
+          <ul className="center">
+            {links.map((link, index) => (
+              <li key={index}>
+                <a href={link.path}>
+                  <i className={link.icon}>
+                    <span className="hide">{link.icon}</span>
+                  </i>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
     </Fragment>
   </nav>
 );
