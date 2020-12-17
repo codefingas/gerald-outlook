@@ -3,8 +3,6 @@ import "materialize-css";
 import { Row, Navbar } from "react-materialize";
 
 const ContentView = ({ id, messages, setId }) => {
-  console.log("THE ID", id);
-  //TODO:create a lookup map for features
 
   const links = [
     {
@@ -75,7 +73,7 @@ const ContentView = ({ id, messages, setId }) => {
                   style={{ paddingRight: "px" }}
                   onClick={() => setId(undefined)}
                 >
-                  <a>
+                  <a href="#/">
                     <i className="mdi mdi-arrow-left"></i>
                   </a>
                 </li>
@@ -83,7 +81,7 @@ const ContentView = ({ id, messages, setId }) => {
                   {message.name}
                 </li>
                 {links.map((link, index) => (
-                  <li>
+                  <li key={`content-view-${index}`}>
                     <a key={index} href="#/">
                       <i className={link.icon}></i>
                     </a>

@@ -1,14 +1,22 @@
 import React from 'react';
+import styled from "styled-components";
 
-function defaultPage(props) {
-    let {icon, text} = props;
+const Wrapper = styled.div`
+    && {
+        width: 1250px;
+    }
+`
+
+function defaultPage({icon, text} ) {
     return (
         <div>
-            <h1 className="center-align">
-                <i className={icon}></i>
-                {" "}
-                {text}
-            </h1>
+            <Wrapper>
+                <h1 className="center-align">
+                    <i className={icon}></i>
+                    {" "}
+                    {text}
+                </h1>
+            </Wrapper>
         </div>
     )
 }

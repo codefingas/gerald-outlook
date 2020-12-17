@@ -1,20 +1,30 @@
-* {
-  margin: 0;
+import { createGlobalStyle } from "styled-components";
+
+export const GlobalStyles = createGlobalStyle`
+  *,
+  *::after,
+  *::before {
+    box-sizing: border-box; margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
+  }
 
-.dark-mode {
-  background-color: #000 !important;
-  color: #ffffffcc !important;
-}
-body {
+  body {
   overflow-x: hidden;
-  background-color:  !important;
-  color: #ffffffcc !important;
-}
+    align-items: center;
+    background: ${({ theme }) => theme.body};
+    color: ${({ theme }) => theme.text};
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    transition: all 0.25s linear;
+  }
+  
 
-nav {
+  nav {
   background-color: transparent !important;
 }
 
@@ -124,14 +134,23 @@ nav form {
 .sidebar li.sidebar-links:after {
   width: 20px;
   height: 20px;
-  background: #0278d5;
+  background: ${({ theme }) => theme.body};
   z-index: 1;
   right: 0;
+}
+
+.sidebar li.hide-curve:before,
+.sidebar li.hide-curve:after {
+  display: none !important;
 }
 
 .sidebar li.sidebar-links:before {
   margin-top: -20px;
   border-bottom-right-radius: 80%;
+}
+
+.sidebar li.active-curve:before {
+    display: block !important;
 }
 
 .sidebar li.sidebar-links:after {
@@ -228,7 +247,7 @@ nav .nav-wrapper i {
 }
 
 .sidebar a.active i {
-  color: #0278d5;
+  color: ${({ theme }) => theme.body};
 }
 
 .sidebar a.active {
@@ -495,7 +514,6 @@ ul.tabItem div.card-panel {
 
   .main-sidebar {
     margin-left: 200px !important;
-    /* transition: margin-left 0.1s !important; */
     margin-right: -200px;
   }
   .doite-content-view {
@@ -519,3 +537,6 @@ ul.tabItem div.card-panel {
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+  
+  `;

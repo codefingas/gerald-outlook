@@ -12,14 +12,15 @@
     "react-materialize": "^3.9.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-    "react-transition-group": "^4.4.1"
+    "react-transition-group": "^4.4.1",
+    "styled-components": "^5.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "yarn build && firebase use c2g-consulting && firebase deploy --only hosting"
+    "deploy": "yarn build && firebase use food-requests-api && firebase deploy --only hosting"
   },
   "eslintConfig": {
     "extends": "react-app"

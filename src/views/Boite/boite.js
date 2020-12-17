@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "materialize-css";
 import {
   Row,
@@ -8,6 +8,7 @@ import {
   Button,
   Dropdown,
 } from "react-materialize";
+import styled from "styled-components";
 import ContentView from "../../Components/layout/contentView";
 
 const style = {
@@ -16,18 +17,6 @@ const style = {
     width: "35px",
   },
 };
-
-//TODO: THE FIRST ITEM HAS THE DROP DOWN OF THE SORT OVER IT - TAKE THAT AWAY
-/*
-    - remove the tabs box shadow *done
-    - hide the scrollbar for the tabs
-*/
-
-/**
- * how do I manage toggling hide and show on large screens
- *    - a mobile value is passed
- *        - how is the mobile value generated and what does it alter
- */
 
 function Boite() {
   let messages = [
@@ -140,18 +129,30 @@ function Boite() {
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
     },
   ];
-  useEffect(() => {
-    //fetch data here
-  }, []);
+
   let [id, setId] = useState();
 
-  /**
-   * I am trying to get the main to show in large screen and hide on small screen
-   *      -
-   */
+  const Container = styled.div`
+    && {
+      width: 100%;
+    }
+  `;
+
+  const IconButton = styled.i`
+        &&{
+          color: "#b1b6c1";
+          }
+    `;
+
+  const StyledButton = styled(Button)`
+    && {
+      margin-right: 0px;
+      background-color: ${({ theme }) => theme.body};
+    }
+  `;
 
   return (
-    <div className="container-fluid">
+    <Container className="container">
       <Row className="doite">
         <Col
           className={`${id === undefined ? "" : "hide-content-on-small"}`}
@@ -181,28 +182,16 @@ function Boite() {
                 <span style={{ color: "#444956" }} node="button" href="#/">
                   <b>
                     Prioritaire{" "}
-                    <i
-                      style={{ color: "#b1b6c1" }}
-                      className="mdi mdi-chevron-down"
-                    >
+                    <IconButton className="mdi mdi-chevron-down">
                       <span className="hide">mdi mdi-chevron-down</span>
-                    </i>
+                    </IconButton>
                   </b>
                 </span>
               }
             ></Dropdown>
-            <Button
-              node="a"
-              small
-              style={{
-                marginRight: "0px",
-                backgroundColor: "#0278d5",
-              }}
-              className="right"
-              waves="light"
-            >
+            <StyledButton node="a" small className="right" waves="light">
               <i className="mdi mdi-plus"></i>
-            </Button>
+            </StyledButton>
           </Row>
           <Row>
             <div className="tab">
@@ -250,7 +239,7 @@ function Boite() {
           <ContentView setId={setId} messages={messages} id={id} />
         </Col>
       </Row>
-    </div>
+    </Container>
   );
 }
 

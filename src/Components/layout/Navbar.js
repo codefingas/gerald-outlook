@@ -1,14 +1,81 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { NavLink } from "react-router-dom";
+import styled from "styled-components";
 import "materialize-css";
 import { Dropdown } from "react-materialize";
 import DefaultPage from "../../views/defaultPage";
 import Boite from "../../views/Boite/boite";
+import {lightTheme, darkTheme} from "../../theme";
 
 let style = {
-  smallNav: { marginTop: "35px", marginBottom: "10px", marginLeft: "25px" }
+  smallNav: { marginTop: "35px", marginBottom: "10px", marginLeft: "25px" },
 };
+
+const ToggleBtn = styled.label`
+  && {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+
+  && input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: ${darkTheme.body};
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+
+  input:checked + .slider {
+    background-color: ${lightTheme.body};
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196f3;
+  }
+
+  input:checked + .slider:before {
+    top: -2px;
+    left: 12px;
+    width: 22px;
+    border: unset;
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+`;
 
 export const routes = [
   {
@@ -78,7 +145,9 @@ const links = [
   },
 ];
 
-export const SideNav = ({ showSidebar, sidebar }) => (
+export const SideNav = ({ showSidebar, sidebar, theme, switchTheme }) => {
+  const [isActiveHere, setActiveClass] = useState(0);
+return (
   <ul>
     <Dropdown
       id="Dropdown_6"
@@ -118,9 +187,18 @@ export const SideNav = ({ showSidebar, sidebar }) => (
       <a href="#/">five</a>
     </Dropdown>
     {routes.map((route, index) => (
-      <li className="sidebar-links" key={`${route.path}/${index}`}>
+      <li className={`sidebar-links ${isActiveHere === index ? 'active-curve': 'hide-curve'}`} key={`${route.path}/${index}`}>
         <NavLink
           onClick={() => (sidebar ? showSidebar(!sidebar) : null)}
+          isActive={(match) => {
+            if(match){
+              setActiveClass(index);
+               return true;
+            }
+            else {
+              return false;
+            }
+          }}
           exact
           to={route.path}
         >
@@ -133,10 +211,20 @@ export const SideNav = ({ showSidebar, sidebar }) => (
         </NavLink>
       </li>
     ))}
+    <li>
+      <ToggleBtn>
+        <input type="checkbox" onChange={() => switchTheme(!theme)} />
+        <span className="slider round"></span>
+      </ToggleBtn>
+      <br/>
+      Switch Theme
+    </li>
   </ul>
 );
+}
 
-export const Navbar = () => (
+
+export const Navbar = ({ theme, switchTheme}) => (
   <nav className="z-depth-0">
     <Fragment>
       <form>
@@ -178,6 +266,14 @@ export const Navbar = () => (
                 </a>
               </li>
             ))}
+            <li>
+              <ToggleBtn>
+                <input type="checkbox" onChange={() => switchTheme(!theme)} />
+                <span className="slider round"></span>
+              </ToggleBtn>
+              <br/>
+              Switch theme
+            </li>
           </ul>
         </div>
       </nav>
