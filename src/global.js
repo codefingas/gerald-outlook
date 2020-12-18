@@ -367,11 +367,11 @@ nav [class*="mdi-"] {
 }
 
 ul.tabItem .active {
-  background-color: #f4f9fe !important;
+  background-color: ${({theme}) => theme.activeCard} !important;
 }
 
 ul.tabItem .active .doite-message {
-  color: #3392dd !important;
+  color: ${({theme}) => theme.activeCardText} !important;
 }
 
 ul.tabItem div.card-panel {
